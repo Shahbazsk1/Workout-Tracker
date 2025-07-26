@@ -99,7 +99,6 @@ For example:<br>
 
 <p><strong>🔐 Step 5: Authentication Options</strong></p>
 <ul>
-  
 <li><strong>Option 1: No Auth</strong></li>
 <ul>
   <li>Anyone can access your sheet. Not secure.</li>
@@ -110,16 +109,18 @@ For example:<br>
 <li><strong>Option 2: Basic Auth</strong></li>
 <p><strong>Use your Sheety username and password:</strong></p>
 <p>response = requests.post(sheet_endpoint, json=sheet_inputs, auth=("your_username", "your_password"))</p>
-<li><strong>Option 3: Bearer Token (Recommended)</strong></li>
+<li><strong>Option 3: Bearer Token (Recommended)</strong>
 <ol>
   <li>In Sheety dashboard → Click on your project → Settings → Authentication.</li>
   <li>Enable "Bearer Token" auth.</li>
   <li>Copy the token.</li>
   <li>In your code:</li>
 </ol>
+</li>
 <p>
 headers = {<br>
     "Authorization": "Bearer YOUR_TOKEN"<br>
 }<br>
 response = requests.post(sheet_endpoint, json=sheet_inputs, headers=headers)
 </p>
+</ul>
