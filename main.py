@@ -1,5 +1,6 @@
 import requests
 from datetime import datetime
+import os
 
 # Your personal data. Used by Nutritionix to calculate calories.
 GENDER = "male"
@@ -7,13 +8,11 @@ WEIGHT_KG = 84
 HEIGHT_CM = 180
 AGE = 32
 
-
 # Nutritionix APP ID and API Key. Actual values are stored as environment variables.
-APP_ID = "99c6c9e5"
-API_KEY = "76c22532351b214db998ec95f33fc079"
+APP_ID = os.environ["ENV_NIX_APP_ID"]
+API_KEY = os.environ["ENV_NIX_API_KEY"]
 
 exercise_endpoint = "https://trackapi.nutritionix.com/v2/natural/exercise"
-print(exercise_endpoint)
 
 
 exercise_text = input("Tell me which exercises you did: ")
@@ -42,7 +41,8 @@ now_time = datetime.now().strftime("%X")
 
 # Sheety Project API. Check your Google sheet name and Sheety endpoint
 GOOGLE_SHEET_NAME = "workout"
-sheet_endpoint = "https://api.sheety.co/58c9bc9fcd1d4728baeba4b7be2f3c8a/myWorkouts/workouts"
+sheet_endpoint = os.environ[
+    "ENV_SHEETY_ENDPOINT"]
 
 # Sheety API Call & Authentication
 for exercise in result["exercises"]:
@@ -66,8 +66,8 @@ for exercise in result["exercises"]:
         sheet_endpoint,
         json=sheet_inputs,
         auth=(
-            "AppBreweryInfo",
-            "Shahbaz1234",
+            os.environ["ENV_SHEETY_USERNAME"],
+            os.environ["ENV_SHEETY_PASSWORD"],
         )
     )
 
@@ -80,6 +80,6 @@ for exercise in result["exercises"]:
         sheet_endpoint,
         json=sheet_inputs,
         headers=bearer_headers
-    )
+    )    
     """
     print(f"Sheety Response: \n {sheet_response.text}")
