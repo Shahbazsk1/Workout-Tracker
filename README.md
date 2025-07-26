@@ -33,7 +33,7 @@
 </li>
 </ul>
 <h3>✅ Step-by-Step Guide: Setting Up Sheety API</h3>
-<p>🔧 Step 1: Create a Google Sheet</p>
+<p><strong>🔧 Step 1: Create a Google Sheet</strong></p>
 <ol>
   <li>Go to Google Sheets.</li>
   <li>Create a new sheet and name it (e.g., myWorkouts).</li>
@@ -76,80 +76,52 @@
     </table>
   <p>Click "Get Started for Free" or Sign in with your Google account.</p>
 </ol>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-📁 Step 3: Create a New Project
-After logging in, click "New Project".
-
-Choose the Google Sheet you created.
-
-Authorize access if prompted.
-
-Give your project a name (e.g., My Workouts).
-
-🔌 Step 4: Get Your API Endpoint
-Once your sheet is connected, Sheety will show your custom API endpoint.
+<p><strong>🌐 Step 2: Go to Sheety</strong></p>
+<ol>
+  <li>Visit https://sheety.co.</li>
+  <li>Click "Get Started for Free" or Sign in with your Google account.
+</li>
+</ol>
+<p><strong>📁 Step 3: Create a New Project</strong></p>
+<ol>
+  <li>After logging in, click "New Project".</li>
+  <li>Choose the Google Sheet you created.</li>
+  <li>Authorize access if prompted.</li>
+  <li>Give your project a name (e.g., My Workouts).</li>
+</ol>
+<p><strong>🔌 Step 4: Get Your API Endpoint</strong></p>
+<p>Once your sheet is connected, Sheety will show your custom API endpoint.
 
 For example:
 
-php-template
-Copy
-Edit
+
 https://api.sheety.co/<your-project-id>/<project-name>/<sheet-name>
 📌 Example from your code:
 
-bash
-Copy
-Edit
+
 https://api.sheety.co/58c9bc9fcd1d4728baeba4b7be2f3c8a/myWorkouts/workouts
-Use this URL to send POST, GET, PUT, and DELETE requests.
-
-🔐 Step 5: Authentication Options
-Option 1: No Auth
-Anyone can access your sheet. Not secure.
-
-Just use:
-
-python
-Copy
-Edit
-response = requests.post(sheet_endpoint, json=sheet_inputs)
-Option 2: Basic Auth
-Use your Sheety username and password:
-
-python
-Copy
-Edit
-response = requests.post(sheet_endpoint, json=sheet_inputs, auth=("your_username", "your_password"))
-Option 3: Bearer Token (Recommended)
-In Sheety dashboard → Click on your project → Settings → Authentication.
-
-Enable "Bearer Token" auth.
-
-Copy the token.
-
-In your code:
-
-python
-Copy
-Edit
-headers = {
-    "Authorization": "Bearer YOUR_TOKEN"
-}
+Use this URL to send POST, GET, PUT, and DELETE requests</p>
+<p><strong>🔐 Step 5: Authentication Options</strong></p>
+<p><strong>Option 1: No Auth</strong></p>
+<ul>
+  <li>Anyone can access your sheet. Not secure.</li>
+  <li>Just use:
+    <p>response = requests.post(sheet_endpoint, json=sheet_inputs)</p>
+  </li>
+</ul>
+<p><strong>Option 2: Basic Auth</strong></p>
+<p><strong>Use your Sheety username and password:</strong></p>
+<p>response = requests.post(sheet_endpoint, json=sheet_inputs, auth=("your_username", "your_password"))</p>
+<p><strong>Option 3: Bearer Token (Recommended)</strong></p>
+<ol>
+  <li>In Sheety dashboard → Click on your project → Settings → Authentication.</li>
+  <li>Enable "Bearer Token" auth.</li>
+  <li>Copy the token.</li>
+  <li>In your code:</li>
+</ol>
+<p>
+headers = {<br>
+    "Authorization": "Bearer YOUR_TOKEN"<br>
+}<br>
 response = requests.post(sheet_endpoint, json=sheet_inputs, headers=headers)
+</p>
