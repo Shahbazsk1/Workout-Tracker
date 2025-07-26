@@ -32,3 +32,124 @@
   <a href="https://sheety.co/docs" target="_blank">🔗 https://sheety.co/docs</a>
 </li>
 </ul>
+<h3>✅ Step-by-Step Guide: Setting Up Sheety API</h3>
+<p>🔧 Step 1: Create a Google Sheet</p>
+<ol>
+  <li>Go to Google Sheets.</li>
+  <li>Create a new sheet and name it (e.g., myWorkouts).</li>
+  <li>Create columns for the data you want to store, such as:
+    <ul>
+      <li>date</li>
+      <li>time</li>
+      <li>exercise</li>
+      <li>duration</li>
+      <li>calories</li>
+    </ul>
+  </li>
+  <p>📌 Example:</p>
+<table>
+      <thead>
+        <tr>
+          <th>date</th>
+          <th>time</th>
+          <th>exercise</th>
+          <th>duration</th>
+          <th>calories</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>2025-07-25</td>
+          <td>08:30</td>
+          <td>Running</td>
+          <td>30 min</td>
+          <td>300</td>
+        </tr>
+        <tr>
+          <td>2025-07-26</td>
+          <td>07:00</td>
+          <td>Cycling</td>
+          <td>45 min</td>
+          <td>400</td>
+        </tr>
+      </tbody>
+    </table>
+  <p>Click "Get Started for Free" or Sign in with your Google account.</p>
+</ol>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+📁 Step 3: Create a New Project
+After logging in, click "New Project".
+
+Choose the Google Sheet you created.
+
+Authorize access if prompted.
+
+Give your project a name (e.g., My Workouts).
+
+🔌 Step 4: Get Your API Endpoint
+Once your sheet is connected, Sheety will show your custom API endpoint.
+
+For example:
+
+php-template
+Copy
+Edit
+https://api.sheety.co/<your-project-id>/<project-name>/<sheet-name>
+📌 Example from your code:
+
+bash
+Copy
+Edit
+https://api.sheety.co/58c9bc9fcd1d4728baeba4b7be2f3c8a/myWorkouts/workouts
+Use this URL to send POST, GET, PUT, and DELETE requests.
+
+🔐 Step 5: Authentication Options
+Option 1: No Auth
+Anyone can access your sheet. Not secure.
+
+Just use:
+
+python
+Copy
+Edit
+response = requests.post(sheet_endpoint, json=sheet_inputs)
+Option 2: Basic Auth
+Use your Sheety username and password:
+
+python
+Copy
+Edit
+response = requests.post(sheet_endpoint, json=sheet_inputs, auth=("your_username", "your_password"))
+Option 3: Bearer Token (Recommended)
+In Sheety dashboard → Click on your project → Settings → Authentication.
+
+Enable "Bearer Token" auth.
+
+Copy the token.
+
+In your code:
+
+python
+Copy
+Edit
+headers = {
+    "Authorization": "Bearer YOUR_TOKEN"
+}
+response = requests.post(sheet_endpoint, json=sheet_inputs, headers=headers)
