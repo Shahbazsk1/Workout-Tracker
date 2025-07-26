@@ -10,13 +10,16 @@
 </ul>
 <h3>🌐 APIs and Services Used</h3>
 <h4>1. Nutritionix API</h4>
-<p><strong>Purpose:</strong> Converts natural language exercise descriptions into structured data like calories burned, duration, etc.</p>
-<p><strong>Endpoint:</strong><br>
+<ul>
+<li><strong>Purpose:</strong> Converts natural language exercise descriptions into structured data like calories burned, duration, etc.</li>
+<li><strong>Endpoint:</strong><br>
   <code>https://trackapi.nutritionix.com/v2/natural/exercise</code>
-</p>
-<p><strong>Docs:</strong><br>
+</li>
+<li><strong>Docs:</strong><br>
   <a href="https://www.nutritionix.com/business/api" target="_blank">🔗 https://www.nutritionix.com/business/api</a>
-</p>
+</li>
+</ul>
+<ul>
 <h4>2. Sheety API</h4>
 <p><strong>Purpose:</strong> Allows updating Google Sheets like a database using RESTful API calls.</p>
 <p><strong>Endpoint format (example):</strong><br>
@@ -28,4 +31,4 @@
 <p><strong>Docs:</strong><br>
   <a href="https://sheety.co/docs" target="_blank">🔗 https://sheety.co/docs</a>
 </p>
-
+</ul>
